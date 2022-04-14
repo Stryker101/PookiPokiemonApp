@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pokemon_itemView"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/background_item_pokemon"
+    android:clickable="true"
+    android:clipToPadding="false"
+    android:focusable="true"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/pokemon_item_tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="83dp"
+        android:fontFamily="@font/circularstd_medium"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/circularstd_medium"
+        tools:text="Titulo" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textViewID"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:alpha="0.25"-->
+<!--        android:gravity="top"-->
+<!--        android:text="#001"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        tools:text="#001" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textViewType2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_above="@+id/textViewType3"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:background="@drawable/background_item_pokemon_span"-->
+<!--        android:paddingStart="8dp"-->
+<!--        android:paddingEnd="8dp"-->
+<!--        android:text="Grass"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="14sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textViewType3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@drawable/background_item_pokemon_span"-->
+<!--        android:paddingStart="8dp"-->
+<!--        android:paddingEnd="8dp"-->
+<!--        android:text="Grass"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="14sp" />-->
+
+    <ImageView
+        android:id="@+id/pokemon_item_ivImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="29dp"
+        android:src="@drawable/poke001" />
+
+
+</RelativeLayout>
