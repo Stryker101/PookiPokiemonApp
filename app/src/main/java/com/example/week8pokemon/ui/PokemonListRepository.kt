@@ -11,14 +11,14 @@ class PokemonListRepository(private val apiService: PokemonInterface) {
 
     private lateinit var pokemonListDataSource: PokemonListDataSource
 
-    fun fetchLivePokemonPagedList(compositeDisposable: CompositeDisposable, limit: Int, offset:Int): LiveData<PokemonList> {
+    fun fetchLivePokemonPagedList(compositeDisposable: CompositeDisposable, limit: Int, offset: Int): LiveData<PokemonList> {
         pokemonListDataSource = PokemonListDataSource(apiService, compositeDisposable)
         pokemonListDataSource.getPokemonList(limit, offset)
 
         return pokemonListDataSource.downloadedPokemonListResponse
     }
 
-    fun getNetworkState(): LiveData<NetworkState>{
+    fun getNetworkState(): LiveData<NetworkState> {
         return pokemonListDataSource.networkState
     }
 }

@@ -12,23 +12,21 @@ class PokemonDetailsRepository(private val apiService: PokemonInterface) {
 
     private lateinit var pokemonDetailsNetworkDataSource: PokemonDetailsNetworkDataSource
 
-
-    fun fetchSinglePokemonDetails(compositeDisposable: CompositeDisposable, pokemonName: String): LiveData<PokemonDetails>{
+    fun fetchSinglePokemonDetails(compositeDisposable: CompositeDisposable, pokemonName: String): LiveData<PokemonDetails> {
         pokemonDetailsNetworkDataSource = PokemonDetailsNetworkDataSource(apiService, compositeDisposable)
         pokemonDetailsNetworkDataSource.getPokemonInfo(pokemonName)
 
         return pokemonDetailsNetworkDataSource.downloadedPokemonDetailsResponse
     }
 
-    fun fetchSpecieDetails(compositeDisposable: CompositeDisposable, url: String): LiveData<ForSpecies>{
+    fun fetchSpecieDetails(compositeDisposable: CompositeDisposable, url: String): LiveData<ForSpecies> {
         pokemonDetailsNetworkDataSource = PokemonDetailsNetworkDataSource(apiService, compositeDisposable)
         pokemonDetailsNetworkDataSource.getPokemonInfo(url)
 
         return pokemonDetailsNetworkDataSource.downloadedSpeciesResponse
     }
 
-    fun getPokemonDetailsNetworkState(): LiveData<NetworkState>{
+    fun getPokemonDetailsNetworkState(): LiveData<NetworkState> {
         return pokemonDetailsNetworkDataSource.networkState
     }
-
 }

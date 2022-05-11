@@ -11,19 +11,19 @@ import io.reactivex.schedulers.Schedulers
 
 class PokemonDetailsNetworkDataSource(
     private val apiService: PokemonInterface,
-    private val compositeDisposable: CompositeDisposable)
-{
+    private val compositeDisposable: CompositeDisposable
+) {
     private val _networkState = MutableLiveData<NetworkState>()
     val networkState: LiveData<NetworkState>
-    get() = _networkState
+        get() = _networkState
 
     private val _downloadedPokemonDetailsResponse = MutableLiveData<PokemonDetails>()
     val downloadedPokemonDetailsResponse: LiveData<PokemonDetails>
-    get() = _downloadedPokemonDetailsResponse
+        get() = _downloadedPokemonDetailsResponse
 
     private val _downloadedSpeciesResponse = MutableLiveData<ForSpecies>()
     val downloadedSpeciesResponse: LiveData<ForSpecies>
-    get() = _downloadedSpeciesResponse
+        get() = _downloadedSpeciesResponse
 
     fun getPokemonInfo(pokemonName: String) {
         _networkState.postValue(NetworkState.LOADING)
@@ -33,16 +33,16 @@ class PokemonDetailsNetworkDataSource(
                     .subscribeOn(Schedulers.io())
                     .subscribe(
                         {
-                        _downloadedPokemonDetailsResponse.postValue(it)
+                            _downloadedPokemonDetailsResponse.postValue(it)
                             _networkState.postValue(NetworkState.LOADED)
                         },
                         {
                             _networkState.postValue(NetworkState.ERROR)
                             it.message?.let { it -> Log.e("PokemonDetailsSource", it) }
-                        })
+                        }
+                    )
             )
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             e.message?.let { Log.e("PokemonDetailsSource", it) }
         }
     }
@@ -55,16 +55,16 @@ class PokemonDetailsNetworkDataSource(
                     .subscribeOn(Schedulers.io())
                     .subscribe(
                         {
-                          _downloadedSpeciesResponse.postValue(it)
-                          _networkState.postValue(NetworkState.LOADED)
+                            _downloadedSpeciesResponse.postValue(it)
+                            _networkState.postValue(NetworkState.LOADED)
                         },
                         {
                             _networkState.postValue(NetworkState.ERROR)
                             it.message?.let { it -> Log.e("PokemonSpecieSource", it) }
-                        })
+                        }
+                    )
             )
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             e.message?.let { Log.e("PokemonSpecieSource", it) }
         }
     }
